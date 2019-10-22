@@ -23,6 +23,11 @@ export default {
      //Delete a book on the database
      deleteBook: function(id) {
       return axios.delete("/api/books/" + id );
+    },
+
+    // Update user to Collection
+    updateUser: function(userData) {
+      return axios.post("/api/users", userData);
     }
 
 }

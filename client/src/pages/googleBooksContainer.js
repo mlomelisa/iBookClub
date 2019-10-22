@@ -29,19 +29,19 @@ class GoogleContainer extends Component {
       
   };
 
-  loadBooks = () => {
+  // loadBooks = () => {
     
     
-        this.setState({    
-        search: "",
-        title:"",
-        authors:"",
-        description:"",
-        src:"",
-        link:"" })
+  //       this.setState({    
+  //       search: "",
+  //       title:"",
+  //       authors:"",
+  //       description:"",
+  //       src:"",
+  //       link:"" })
   
         
-  };
+  // };
 
 
 

@@ -40,8 +40,8 @@ function NavTabs(props) {
    
     <ul>
       <li className="nav-item">
-        <p className="title">{props.name}</p>
-        <img src={props.src}></img>
+        <p className="title">{props.name} <img src={props.src}></img></p>
+       
       </li>
     </ul>
 </nav>
