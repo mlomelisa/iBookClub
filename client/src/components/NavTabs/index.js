@@ -14,7 +14,7 @@ function NavTabs(props) {
       </li>
       <li className="nav-item">
         <Link
-          to="/search"
+          to={`/search/${props.userID}`}
           className={window.location.pathname === "/search" ? "nav-link active" : "nav-link"}
         >
           Search
@@ -22,7 +22,7 @@ function NavTabs(props) {
       </li>
       <li className="nav-item">
         <Link
-          to="/saved"
+          to={`/saved/${props.userID}`}
           className={window.location.pathname === "/saved" ? "nav-link active" : "nav-link"}
         >
           Saved

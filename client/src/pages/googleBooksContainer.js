@@ -17,6 +17,7 @@ class GoogleContainer extends Component {
   };
 
   searchBooks = query => {
+    
     API.search(query)
       .then(res => this.setState({ result: res.data.items }))
       .catch(() =>
@@ -25,24 +26,7 @@ class GoogleContainer extends Component {
           message: "No New Books Found, Try a Different Query"
         })
       );
-
-      
   };
-
-  // loadBooks = () => {
-    
-    
-  //       this.setState({    
-  //       search: "",
-  //       title:"",
-  //       authors:"",
-  //       description:"",
-  //       src:"",
-  //       link:"" })
-  
-        
-  // };
-
 
 
   handleInputChange = event => {
@@ -60,8 +44,7 @@ handleFormSubmit = event => {
   };
 
 
-
-    handleBookSave = id => {
+handleBookSave = id => {
       const book = this.state.result.find(book => book.id === id);
   
       API.saveBook({
@@ -78,7 +61,7 @@ handleFormSubmit = event => {
   
 
   render() {
-    
+    console.log(this.props.match.params.userID)
     return (
       <Container>
 

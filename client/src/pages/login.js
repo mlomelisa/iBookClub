@@ -74,17 +74,18 @@ export default class Login extends Component {
 
  
   render() {
+    console.log(this.state.userID)
     let AuthContent;
  
     if (this.state.isLoggedIn) { 
       AuthContent = (     
         <Router>
       <div>
-        <NavTabs src={this.state.picture} name={this.state.name} />
+        <NavTabs src={this.state.picture} name={this.state.name} userID={this.state.userID}/>
         <Jumbotron />
         <Switch>
-          <Route exact path="/Search" component={GoogleContainer} />
-          <Route exact path="/Saved" component={Saved} />
+          <Route exact path={`/search/${this.state.userID}`} component={GoogleContainer} />
+          <Route exact path={`/saved/:${this.state.userID}`} component={Saved} />
         </Switch>
       </div>
     </Router>
@@ -111,8 +112,8 @@ export default class Login extends Component {
          </div>
          <Router>
         <Switch>
-          <Route exact path="/Search" component={Login} />
-          <Route exact path="/Saved" component={Login} />
+          <Route exact path="/search" component={Login} />
+          <Route exact path="/saved" component={Login} />
         </Switch>
        </Router>
         </div>
