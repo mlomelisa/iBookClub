@@ -12,12 +12,13 @@ app.use(express.json());
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
-// Connect to the Mongo DB
-console.log(process.env.MONGODB_URI || "mongodb://localhost/booskDB");
-mongoose.connect(
- // process.env.MONGODB_URI || "mongodb://root:php42lnx@@ds335668.mlab.com:35668/heroku_28x5xkqn",
- process.env.MONGODB_URI || "mongodb://localhost/booskDB"
-);
+
+const db = require('./config/keys').MongoURI;
+
+// Connect to Mongo
+mongoose.connect(db, {useNewUrlParser: true, useUnifiedTopology: true  })
+.then(console.log('MongoDB connected....'))
+.catch(err => console.log(err));
 
 // Define API routes here
 app.use(routes);
