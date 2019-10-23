@@ -17,7 +17,8 @@ class GoogleContainer extends Component {
   };
 
   searchBooks = query => {
-    
+   // console.log(this.state.)
+   console.log(this.state.userID)
     API.search(query)
       .then(res => this.setState({ result: res.data.items }))
       .catch(() =>
@@ -53,7 +54,8 @@ handleBookSave = id => {
         link: book.volumeInfo.infoLink,
         authors: book.volumeInfo.authors,
         description: book.volumeInfo.description,
-        image: book.volumeInfo.imageLinks.thumbnail
+        image: book.volumeInfo.imageLinks.thumbnail,
+        userID: this.state.userID
       }).then(() => this.searchBooks());
 
       return console.log(book.id)

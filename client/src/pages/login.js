@@ -84,7 +84,7 @@ export default class Login extends Component {
         <NavTabs src={this.state.picture} name={this.state.name} userID={this.state.userID}/>
         <Jumbotron />
         <Switch>
-          <Route exact path={`/search/${this.state.userID}`} component={GoogleContainer} />
+          <Route exact path={`/search/${this.state.userID}`} render={(props) => <GoogleContainer {...props} userID={this.state.userID}/>} />
           <Route exact path={`/saved/:${this.state.userID}`} component={Saved} />
         </Switch>
       </div>

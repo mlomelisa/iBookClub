@@ -8,7 +8,8 @@ const bookSchema = new Schema({
     link: { type: String, required: true },
     description: { type: String, required: true },
     image: { type: String, required: true },
-    id: { type: String, required: true, unique: true }
+    id: { type: String, required: true, unique: true },
+    userID: {type: Schema.Types.ObjectId, ref: "User"}
   });
   
 
