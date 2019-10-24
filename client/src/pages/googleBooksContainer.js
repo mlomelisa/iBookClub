@@ -5,6 +5,8 @@ import {BookDetail, BookList} from "../components/BookDetail";
 import API from "../utils/API";
 
 class GoogleContainer extends Component {
+  
+
   state = {
     result: [],
     search: "",
@@ -16,9 +18,15 @@ class GoogleContainer extends Component {
     id:"",
   };
 
+ 
+  componentDidMount () {
+    console.log(this.props.userID)
+    
+    
+}
+
   searchBooks = query => {
-   // console.log(this.state.)
-   console.log(this.state.userID)
+   
     API.search(query)
       .then(res => this.setState({ result: res.data.items }))
       .catch(() =>
@@ -29,8 +37,10 @@ class GoogleContainer extends Component {
       );
   };
 
+  
 
   handleInputChange = event => {
+
     const value = event.target.value;
     const name = event.target.name;
     this.setState({
@@ -47,7 +57,8 @@ handleFormSubmit = event => {
 
 handleBookSave = id => {
       const book = this.state.result.find(book => book.id === id);
-  
+      const userIDC = this.props.userID
+      console.log(userIDC)
       API.saveBook({
         id: book.id,
         title: book.volumeInfo.title,
@@ -55,7 +66,7 @@ handleBookSave = id => {
         authors: book.volumeInfo.authors,
         description: book.volumeInfo.description,
         image: book.volumeInfo.imageLinks.thumbnail,
-        userID: this.state.userID
+        userID: userIDC
       }).then(() => this.searchBooks());
 
       return console.log(book.id)
@@ -63,8 +74,9 @@ handleBookSave = id => {
   
 
   render() {
-    console.log(this.props.match.params.userID)
+   
     return (
+      
       <Container>
 
             <div heading="Search">

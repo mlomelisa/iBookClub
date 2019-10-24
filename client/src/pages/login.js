@@ -42,7 +42,7 @@ export default class Login extends Component {
           email: response.profileObj.email,
           picture: response.profileObj.imageUrl
        })
-    // .then(() => this.signup(response, 'google'));
+   
     return this.signup(response, 'google');
   }
 
