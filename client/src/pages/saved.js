@@ -21,7 +21,9 @@ class Saved extends Component {
 
 
   getSavedBooks = () => {
-    API.getSavedBooks()
+    const userID=this.props.userID;
+    console.log(userID)
+    API.getSavedBooks(userID)
       .then(res => 
         this.setState({
         result: res.data 

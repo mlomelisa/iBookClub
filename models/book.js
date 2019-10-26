@@ -9,7 +9,7 @@ const bookSchema = new Schema({
     description: { type: String, required: true },
     image: { type: String},
     id: { type: String, required: true, unique: true },
-    userID: {type: String, required: true}
+    userID: {type: Number, required: true}
   });
   
 

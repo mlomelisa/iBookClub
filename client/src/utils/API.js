@@ -16,8 +16,8 @@ export default {
   },
 
    //Pulls book from the database
-   getSavedBooks: function() {
-    return axios.get("/api/books");
+   getSavedBooks: function(id) {
+    return axios.get("/api/books/" + id);
   },
 
      //Delete a book on the database
