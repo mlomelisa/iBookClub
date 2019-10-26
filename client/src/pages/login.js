@@ -20,19 +20,7 @@ export default class Login extends Component {
     picture: ""
   }
 
-  // Facebook Response, send user object to DB
-  responseFacebook = response => { 
   
-     API.updateUser({
-        userID: response.userID,
-        name: response.name,
-        email: response.email,
-        picture: response.picture.data.url
-    })
-      
-  return this.signup(response, 'facebook');
-  }
-
 // Google Response, send user object to DB
   responseGoogle = response => { 
     
@@ -43,34 +31,19 @@ export default class Login extends Component {
           picture: response.profileObj.imageUrl
        })
    
-    return this.signup(response, 'google');
+    return this.signup(response);
   }
 
 
- signup(response, type) {
-    console.log(response)
-    if (type === 'facebook' && response.email) {
-     
+ signup(response) {   
       this.setState({
-        isLoggedIn: true,
-        userID: response.userID,
-        name: response.name,
-        email: response.email,
-        picture: response.picture.data.url
-      });
-    
-    } 
-    else if (type === 'google' && response.profileObj.email) {
-      this.setState({
-       isLoggedIn: true,
+      isLoggedIn: true,
      userID: response.El,
      name: response.profileObj.name,
      email: response.profileObj.email,
      picture: response.profileObj.imageUrl
    });
-     
-    }  
-  }
+}
 
  
   render() {
@@ -98,11 +71,6 @@ export default class Login extends Component {
               marginLeft: '700px',
               marginTop: '100px'
             }} >
-        <FacebookLogin
-        appId="2617830041642662"
-        fields="name,email,picture"
-        callback={this.responseFacebook} />
-
         <GoogleLogin
         clientId={'194250480637-a0c99ojc4kgkk7i8i4lta3f3rjr07daa.apps.googleusercontent.com'}
         buttonText="Login with Google"
