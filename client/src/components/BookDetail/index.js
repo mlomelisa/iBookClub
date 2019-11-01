@@ -13,11 +13,11 @@ export function BookList({ children }) {
 
 export function BookDetail(props) {
   return (
-    <div class="card my-2">
-      <div class="card-header">
+    <div className="card my-2">
+      <div className="card-header">
         <h4>{props.title}</h4>
       </div>
-      <div class="card-body">
+      <div className="card-body">
         {/* <h5 class="card-title"></h5> */}
         <Container >
      {/* <Row >
@@ -34,7 +34,7 @@ export function BookDetail(props) {
           <img alt={props.title} className="imageShadow" src={props.src} style={{ margin: "0 auto" }} />
           </Row>
           <Row>
-            <div class="m-4">
+            <div className="m-2 text-center">
           <a href={props.link} target="_blank" rel="noreferrer noopener">
             <button type="button" className="btn btn-primary">View</button></a>
             <button type="button" className="btn btn-primary" data-author={props.authors} id={props.id} onClick={props.onClick}>{props.btnvalue}</button>
@@ -42,8 +42,8 @@ export function BookDetail(props) {
             </Row>
        </Col>
       <Col size="md-10">
-          <h5>Authors:</h5> {props.authors}
-          <h5>Description:</h5> {props.description}
+          <h5>Authors:</h5> <small>{props.authors}</small>
+          <h5>Description:</h5> <small>{props.description}</small>
       </Col>
       </Row>
       </Container>

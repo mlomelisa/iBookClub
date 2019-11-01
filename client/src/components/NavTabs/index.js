@@ -5,27 +5,27 @@ import Style from "./style.css";
 function NavTabs(props) {
   return (
     <div>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light transparent">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <button type="button" class="btn btn-link">
-              <i class="fas fa-bars"></i>
+      <nav className="navbar navbar-expand-lg navbar-light bg-light transparent">
+        <div className="container-fluid">
+          <div className="navbar-header">
+            <button type="button" className="btn btn-link">
+              <i className="fas fa-bars"></i>
             </button>
           </div>
-          <div class="collapse navbar-collapse navbar-custom" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-          <li class="nav-item">
+          <div className="collapse navbar-collapse navbar-custom" id="navbarSupportedContent">
+        <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li className="nav-item">
           <Link to="/" className={window.location.pathname === "/" ? "nav-link active" : "nav-link"}>
           Google Books
           </Link>
           </li>
-          <li class="nav-item">
+          <li className="nav-item">
           <Link to={`/search/${props.userID}`}
           className={window.location.pathname === "/search" ? "nav-link active" : "nav-link"}>
           Search
         </Link>
           </li>
-          <li class="nav-item">
+          <li className="nav-item">
           <Link
           to={`/saved/${props.userID}`}
           className={window.location.pathname === "/saved" ? "nav-link active" : "nav-link"}
@@ -33,7 +33,7 @@ function NavTabs(props) {
           Saved Books
         </Link>
           </li>
-          <li class="nav-item">
+          <li className="nav-item">
         <Link
           to="/logout"
           className={window.location.pathname === "/logout" ? "nav-link active" : "nav-link"}
@@ -43,13 +43,13 @@ function NavTabs(props) {
       </li>
       {/* This is the user profile information */}
         </ul>
-       <ul class="navbar-nav mt-2 mt-lg-0"> 
-       <li class="nav-item">
-       <div class="profile-image">
-        <img id="profileImage" class="profile-image" src={props.src}></img>
+       <ul className="navbar-nav mt-2 mt-lg-0"> 
+       <li className="nav-item">
+       <div className="profile-image">
+        <img id="profileImage" className="profile-image" src={props.src}></img>
         </div>
-        <div class="profile-info">
-          <p class="title"><small>Welcome, </small>
+        <div className="profile-info">
+          <p className="title"><small>Welcome, </small>
           <br/>{props.name} !</p>
         </div>
       

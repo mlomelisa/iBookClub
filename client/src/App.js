@@ -1,8 +1,7 @@
 import React from "react";
-import GoogleContainer from "./pages/googleBooksContainer.js";
-import Saved from "./pages/saved.js";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Login from "./pages/login";
+import Logout from "./pages/logout"
 
 function App() {
   return (
@@ -13,6 +12,7 @@ function App() {
           <Route exact path="/" component={Login} />
           {/* <Route exact path="/Search" component={GoogleContainer} />
           <Route exact path="/Saved" component={Saved} /> */}
+          <Route exact path="/" component={Logout}/>
         </Switch>
       </div>
     </Router>

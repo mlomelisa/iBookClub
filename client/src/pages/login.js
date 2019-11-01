@@ -74,8 +74,8 @@ export default class Login extends Component {
             }} >
 
        
-        <div class="container">
-          <div class="jumbotron">
+        <div className="container">
+          <div className="jumbotron">
             <NavTabL />
             <div style={{
               marginLeft: '420px',
@@ -96,6 +96,7 @@ export default class Login extends Component {
         <Switch>
           <Route exact path="/search" component={Login} />
           <Route exact path="/saved" component={Login} />
+          <Route exact path="/logout" component={Login} />
         </Switch>
        </Router>
         </div>
