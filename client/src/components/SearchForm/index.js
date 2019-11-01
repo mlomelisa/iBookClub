@@ -2,10 +2,10 @@ import React from "react";
 
 function SearchForm(props) {
   return (
-    <form>
-      <div className="form-group">
-        <label htmlFor="search">Search:</label>
-        <input
+    <form class='my-4'>
+      <div className="form-row">
+        {/* <label htmlFor="search" class="sr-only">Search:</label> */}
+        <div class="col"> <input
           onChange={props.handleInputChange}
           value={props.value}
           name="search"
@@ -14,10 +14,14 @@ function SearchForm(props) {
           placeholder="Search For a Book"
           id="search"
         />
-        <br />
-        <button onClick={props.handleFormSubmit} className="btn btn-primary">
+        </div>
+        <div class="row">
+          <button onClick={props.handleFormSubmit} className="btn btn-primary">
           Search
         </button>
+        </div>
+       
+        
       </div>
     </form>
   );

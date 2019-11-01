@@ -4,18 +4,8 @@ h3, p{
 }
 
 body{
-    background-image: url("/login_bg.jpg");
-    background-color: #cccccc;
-
-     /* Full height */
-  height: 100%;
-
-  /* Center and scale the image nicely */
-  background-position: center;
+  background-image: url("/login_bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-.transparent{
-  opacity: 0.5;
-}
