@@ -66,17 +66,31 @@ export default class Login extends Component {
     } else {
       AuthContent = (
         <div >
-        <NavTabL />
+        
         <div style={{
-              marginLeft: '700px',
-              marginTop: '100px'
+              marginLeft: '0px',
+              marginTop: '0px',
+              backgroundColor: "transparent"
             }} >
-        <GoogleLogin
-        clientId={'194250480637-a0c99ojc4kgkk7i8i4lta3f3rjr07daa.apps.googleusercontent.com'}
-        buttonText="Login with Google"
-        onSuccess={this.responseGoogle}
-        onFailure={this.responseGoogle}
-         />
+
+       
+        <div class="container">
+          <div class="jumbotron">
+            <NavTabL />
+            <div style={{
+              marginLeft: '420px',
+              marginTop: '100px',
+              backgroundColor: "transparent"
+            }} >
+            <GoogleLogin
+            clientId={'194250480637-a0c99ojc4kgkk7i8i4lta3f3rjr07daa.apps.googleusercontent.com'}
+            buttonText="Login with Google"
+            onSuccess={this.responseGoogle}
+            onFailure={this.responseGoogle}
+            />
+            </div>
+            </div>
+          </div>
          </div>
          <Router>
         <Switch>

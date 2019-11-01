@@ -1,14 +1,12 @@
 import React from "react";
-import Style from "./style.css";
+import "./style.css";
 
 function NavTabs() {
   return (
-  <nav className="navbar navbar-inverse">
-    <h3>iBookClub App</h3>
-    <p>Login to start searching Books</p>
-    
-      
-</nav>
+    <div >
+      <h1 class="display-4">Google Book Club App</h1>
+      <p class="display-4">Login to start searching Books</p>
+    </div>
   );
 }
 

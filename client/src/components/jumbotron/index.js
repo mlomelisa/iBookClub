@@ -8,6 +8,7 @@ function Jumbotron() {
     <div className="jumbotron">
       <h1>Google Books Search</h1>
       <p>Search for and Save Books of Interest.</p>
+      
     </div>
   </div>
   );
