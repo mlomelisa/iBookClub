@@ -35,7 +35,7 @@ function NavTabs(props) {
           </li>
           <li className="nav-item">
         <Link
-          to="/logout"
+          to={`/logout/${props.userID}`}
           className={window.location.pathname === "/logout" ? "nav-link active" : "nav-link"}
         >
           Log Out

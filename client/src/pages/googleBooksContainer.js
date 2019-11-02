@@ -20,7 +20,7 @@ class GoogleContainer extends Component {
 
  
   componentDidMount () {
-    console.log(this.props.userID)
+    console.log(this.props.userID + ' books container')
     
     
 }

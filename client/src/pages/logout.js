@@ -10,7 +10,48 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import API from "../utils/API";
 
 
-export default class Logout extends Component {
+export class Logout extends Component {
+
+    state = {
+        isLoggedIn: false,
+        userID: "",
+        name: "",
+        email: "",
+        picture: ""
+      }
+
+      componentDidMount () {
+        console.log(this.props.userID + ' logout')
+    }
+    
+
+    
+      
+    // Google Response, send user object to DB
+      responseGoogle = response => { 
+        
+          API.updateUser({ 
+             userID: "",
+              name: "",
+              email: "",
+              picture: ""
+           })
+       
+        return this.sigsignup(response);
+      }
+    
+    
+     signup(response) {   
+          this.setState({
+          isLoggedIn: false,
+         userID: "",
+         name: "",
+         email: "",
+         picture: ""
+       });
+    }
+
+
 
 render() {
     console.log(this.state.userID)
@@ -21,7 +62,7 @@ render() {
       AuthContent = (     
         <Router>
       <div>
-        <NavTabs src={this.state.picture} name={this.state.name} userID={this.state.userID}/>
+        
        <h2>Still Logged in!</h2>
       </div>
     </Router>
@@ -29,7 +70,6 @@ render() {
     } else {
       AuthContent = (
         <div >
-            <NavTabL/>
         <h2>Logged Out.</h2>
         </div>
       );

@@ -8,6 +8,7 @@ import GoogleContainer from "./googleBooksContainer";
 import Saved from "./saved.js";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import API from "../utils/API";
+import { Logout } from './logout';
 
 
 
@@ -59,6 +60,7 @@ export default class Login extends Component {
         <Switch>
           <Route exact path={`/search/${this.state.userID}`} render={(props) => <GoogleContainer {...props} userID={this.state.userID}/>} />
           <Route exact path={`/saved/:${this.state.userID}`} render={(props) => <Saved {...props} userID={this.state.userID}/>} />
+          <Route exact path={`/logout/:${this.state.userID}`} render={(props) => <Logout {...props} userID={this.state.userID}/>} />
         </Switch>
       </div>
     </Router>
@@ -96,7 +98,6 @@ export default class Login extends Component {
         <Switch>
           <Route exact path="/search" component={Login} />
           <Route exact path="/saved" component={Login} />
-          <Route exact path="/logout" component={Login} />
         </Switch>
        </Router>
         </div>

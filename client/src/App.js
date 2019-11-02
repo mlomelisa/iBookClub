@@ -12,7 +12,7 @@ function App() {
           <Route exact path="/" component={Login} />
           {/* <Route exact path="/Search" component={GoogleContainer} />
           <Route exact path="/Saved" component={Saved} /> */}
-          <Route exact path="/" component={Logout}/>
+          {/* <Route exact path="/" component={Logout}/> */}
         </Switch>
       </div>
     </Router>
