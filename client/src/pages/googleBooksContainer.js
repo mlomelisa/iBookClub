@@ -3,6 +3,7 @@ import Container from "../components/Container";
 import SearchForm from "../components/SearchForm";
 import {BookDetail, BookList} from "../components/BookDetail";
 import API from "../utils/API";
+import {Alert} from 'reactstrap';
 
 class GoogleContainer extends Component {
   
@@ -15,7 +16,7 @@ class GoogleContainer extends Component {
     description:"",
     src:"",
     link:"",
-    id:"",
+    id:""
   };
 
  
@@ -24,6 +25,8 @@ class GoogleContainer extends Component {
     
     
 }
+
+
 
   searchBooks = query => {
    
@@ -49,6 +52,7 @@ class GoogleContainer extends Component {
   };
 
 
+
 handleFormSubmit = event => {
     event.preventDefault();
     this.searchBooks(this.state.search);
@@ -56,7 +60,12 @@ handleFormSubmit = event => {
 
 
 handleBookSave = id => {
-      const book = this.state.result.find(book => book.id === id);
+    let indexOfSaved;
+      const book = this.state.result.find((book, index) => {
+        console.log(book, index);
+        indexOfSaved = index;
+        return book.id === id;
+      });
       const userIDC = this.props.userID
       console.log(userIDC)
       API.saveBook({
@@ -67,13 +76,21 @@ handleBookSave = id => {
         description: book.volumeInfo.description,
         image: book.volumeInfo.imageLinks.thumbnail,
         userID: userIDC
-      }).then(() => this.searchBooks());
+      }).then(() => {
+
+        // logic to remove saved book from state
+        const booksArray = this.state.result;
+        booksArray.splice(indexOfSaved, 1);
+        this.setState({result: booksArray});
+      });
 
       return console.log(book.id)
     };
-  
+
+   
 
   render() {
+
    
     return (
       
@@ -98,7 +115,6 @@ handleBookSave = id => {
                   
                   return (
                   
- 
                     <BookDetail
                     key={element.id}
                     id={element.id}
