@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import FacebookLogin from 'react-facebook-login';
 import GoogleLogin from 'react-google-login';
+import { GoogleLogout } from 'react-google-login';
 import NavTabL from "../components/navTabL";
 import NavTabs from "../components/NavTabs";
 import Jumbotron from "../components/jumbotron";
@@ -9,6 +10,7 @@ import Saved from "./saved.js";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import API from "../utils/API";
 import { Logout } from './logout';
+
 
 
 
@@ -21,10 +23,19 @@ export default class Login extends Component {
     picture: ""
   }
 
+  componentDidMount() {
+    const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+    const userID =  localStorage.getItem('userID');
+    const name = localStorage.getItem('name');
+    const email = localStorage.getItem('email');
+    const picture = localStorage.getItem('picture');
+    this.setState({ userID, email, name, picture, isLoggedIn });
+  }
+
   
 // Google Response, send user object to DB
   responseGoogle = response => { 
-    
+    console.log(response);
       API.updateUser({ 
          userID: response.El,
           name: response.profileObj.name,
@@ -44,7 +55,21 @@ export default class Login extends Component {
      email: response.profileObj.email,
      picture: response.profileObj.imageUrl
    });
+   localStorage.setItem("userID",response.El);
+   localStorage.setItem("name", response.profileObj.name);
+   localStorage.setItem("email",  response.profileObj.email);
+   localStorage.setItem("picture", response.profileObj.imageUrl);
+   localStorage.setItem("response",response);
+   localStorage.setItem("isLoggedIn", true);
+
 }
+
+signoutGoogle  = () => {
+  this.setState({
+  isLoggedIn: false
+  })
+  console.log("Logout")
+ }
 
  
   render() {
@@ -60,7 +85,13 @@ export default class Login extends Component {
         <Switch>
           <Route exact path={`/search/${this.state.userID}`} render={(props) => <GoogleContainer {...props} userID={this.state.userID}/>} />
           <Route exact path={`/saved/:${this.state.userID}`} render={(props) => <Saved {...props} userID={this.state.userID}/>} />
-          <Route exact path={`/logout/:${this.state.userID}`} render={(props) => <Logout {...props} userID={this.state.userID}/>} />
+          <GoogleLogout
+            clientId='194250480637-a0c99ojc4kgkk7i8i4lta3f3rjr07daa.apps.googleusercontent.com'
+            buttonText="Logout"
+            onLogoutSuccess={this.signoutGoogle}
+            onFailure={this.signoutGoogle}
+          >
+    </GoogleLogout>
         </Switch>
       </div>
     </Router>

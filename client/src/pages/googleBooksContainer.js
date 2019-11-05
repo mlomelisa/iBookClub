@@ -16,15 +16,22 @@ class GoogleContainer extends Component {
     description:"",
     src:"",
     link:"",
-    id:""
+    id:"",
+    isLoggedIn: false,
+    userID: "",
+    name: "",
+    email: "",
+    picture: ""
   };
 
- 
-  componentDidMount () {
-    console.log(this.props.userID + ' books container')
-    
-    
-}
+  componentDidMount() {
+    const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+    const userID =  localStorage.getItem('userID');
+    const name = localStorage.getItem('name');
+    const email = localStorage.getItem('email');
+    const picture = localStorage.getItem('picture');
+    this.setState({ userID, email, name, picture, isLoggedIn });
+  }
 
 
 

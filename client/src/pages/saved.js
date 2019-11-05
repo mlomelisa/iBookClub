@@ -14,10 +14,26 @@ class Saved extends Component {
     src:"",
     link:"",
     id:"",
+    isLoggedIn: false,
+    userID: "",
+    name: "",
+    email: "",
+    picture: ""
   };
+
   componentDidMount() {
     this.getSavedBooks();
+    const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+    const userID =  localStorage.getItem('userID');
+    const name = localStorage.getItem('name');
+    const email = localStorage.getItem('email');
+    const picture = localStorage.getItem('picture');
+    this.setState({ userID, email, name, picture, isLoggedIn });
   }
+
+  // componentDidMount() {
+  //   this.getSavedBooks();
+  // }
 
 
   getSavedBooks = () => {
@@ -62,13 +78,13 @@ handleFormSubmit = event => {
     return (
       <Container>
 
-            <div heading="Search">
+            {/* <div heading="Search">
               <SearchForm
                 value={this.state.search}
                 handleInputChange={this.handleInputChange}
                 handleFormSubmit={this.handleFormSubmit}
               />
-            </div>
+            </div> */}
 
             <div
               heading={this.state.result.totalItems || "Search for a Book to Begin"}
