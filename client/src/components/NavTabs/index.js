@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import GoogleLogout from 'react-google-login';
 import Style from "./style.css";
 
 function NavTabs(props) {
@@ -37,6 +38,7 @@ function NavTabs(props) {
         <Link
           to={`/logout/${props.userID}`}
           className={window.location.pathname === "/logout" ? "nav-link active" : "nav-link"}
+          
         >
           Log Out
         </Link>

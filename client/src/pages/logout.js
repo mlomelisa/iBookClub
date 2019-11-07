@@ -1,12 +1,5 @@
 import React, { Component } from 'react';
-import FacebookLogin from 'react-facebook-login';
-import GoogleLogin from 'react-google-login';
-import NavTabL from "../components/navTabL";
-import NavTabs from "../components/NavTabs";
-import Jumbotron from "../components/jumbotron";
-import GoogleContainer from "./googleBooksContainer";
-import Saved from "./saved.js";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router} from "react-router-dom";
 import API from "../utils/API";
 
 

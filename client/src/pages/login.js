@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import FacebookLogin from 'react-facebook-login';
 import GoogleLogin from 'react-google-login';
-import { GoogleLogout } from 'react-google-login';
+import GoogleLogout from 'react-google-login';
 import NavTabL from "../components/navTabL";
 import NavTabs from "../components/NavTabs";
 import Jumbotron from "../components/jumbotron";

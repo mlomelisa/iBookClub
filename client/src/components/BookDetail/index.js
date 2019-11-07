@@ -2,7 +2,7 @@ import React from "react";
 import Container from "../Container";
 import Row from "../Row";
 import Col from "../Col";
-import Style from "./style.css";
+import "./style.css";
 
 // RecipeList renders a bootstrap list item
 export function BookList({ children }) {
