@@ -10,7 +10,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import API from "../utils/API";
 
 
-export class Logout extends Component {
+export default class Logout extends Component {
 
     state = {
         isLoggedIn: false,
